@@ -355,7 +355,7 @@
                     <div class="overflow-hidden">
                         <ul class="navigation__list list-unstyled position-relative">
                             <li class="navigation__item">
-                                <a href="index.html" class="navigation__link">Home</a>
+                                <a href="{{ route('index') }}" class="navigation__link">Home</a>
                             </li>
                             <li class="navigation__item">
                                 <a href="shop.html" class="navigation__link">Shop</a>
