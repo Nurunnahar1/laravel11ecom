@@ -321,8 +321,9 @@
                 </a>
 
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Uomo" class="logo__image d-block" />
+                    <a href="{{ route('index') }}">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="Uomo"
+                            class="logo__image d-block" />
                     </a>
                 </div>
 
@@ -443,7 +444,7 @@
             <div class="container">
                 <div class="header-desk header-desk_type_1">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{ route('index') }}">
                             <img src="assets/images/logo.png" alt="Uomo" class="logo__image d-block" />
                         </a>
                     </div>
@@ -451,7 +452,7 @@
                     <nav class="navigation">
                         <ul class="navigation__list list-unstyled d-flex">
                             <li class="navigation__item">
-                                <a href="index.html" class="navigation__link">Home</a>
+                                <a href="{{ route('index') }}" class="navigation__link">Home</a>
                             </li>
                             <li class="navigation__item">
                                 <a href="shop.html" class="navigation__link">Shop</a>
