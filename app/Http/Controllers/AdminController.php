@@ -13,8 +13,5 @@ class AdminController extends Controller
 
 
        // for brands
-       public function brands(){
-              $brands = Brand::orderBy('id', 'desc')->paginate(10);
-              return view('admin.brands', compact('brands'));
-       }
+     
 }
