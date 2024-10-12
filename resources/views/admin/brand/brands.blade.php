@@ -24,6 +24,8 @@
                 <div class="wg-box">
                     <div class="flex items-center justify-between gap10 flex-wrap">
                         <div class="wg-filter flex-grow">
+
+
                             <form class="form-search">
                                 <fieldset class="name">
                                     <input type="text" placeholder="Search here..." class="" name="name"
@@ -38,10 +40,16 @@
                     </div>
                     <div class="wg-table table-all-user">
                         <div class="table-responsive">
+
+                            @if(Session::has('status'))
+                                <p class="alert alert-success">{{ Session::get('status') }}</p>
+                            @endif
+
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Slug</th>
                                         <th>Products</th>
@@ -52,15 +60,8 @@
                                     @foreach ($brands as $brand)
                                         <tr>
                                             <td>{{ $brand->id }}</td>
-                                            <td class="pname">
-                                                <div class="image">
-                                                    <img src="{{ asset('uploads/brands') }}/{{ $brand->image }}"
-                                                        alt="{{ $brand->name }}" class="image">
-                                                </div>
-                                                <div class="name">
-                                                    <a href="#" class="body-title-2">{{ $brand->name }}</a>
-                                                </div>
-                                            </td>
+                                           <td><img src="{{ asset($brand->image) }}" alt="" width="100"></td>
+                                         <td>{{ $brand->name }}</td>
                                             <td>{{ $brand->slug }}</td>
                                             <td><a href="#" target="_blank">1</a></td>
                                             <td>
