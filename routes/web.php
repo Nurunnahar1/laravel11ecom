@@ -21,7 +21,10 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
     Route::get('/admin/brands', [BrandController::class, 'brands'])->name('admin.brands');
     Route::get('/admin/brand-create', [BrandController::class, 'createBrand'])->name('admin.create.brand');
     Route::post('/admin/brand-store', [BrandController::class, 'storeBrand'])->name('admin.brand.store');
+    Route::get('/admin/brand-edit/{slug}', [BrandController::class, 'editBrand'])->name('admin.brand.edit');
+    Route::put('/admin/brand-update/{slug}', [BrandController::class, 'updateBrand'])->name('admin.brand.update');
 });

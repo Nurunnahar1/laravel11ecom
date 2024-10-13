@@ -57,16 +57,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($brands as $brand)
+                                    @foreach ($brands as $key => $brand)
                                         <tr>
-                                            <td>{{ $brand->id }}</td>
+                                            <td>{{ $key+1 }}</td>
                                            <td><img src="{{ asset($brand->image) }}" alt="" width="100"></td>
                                          <td>{{ $brand->name }}</td>
                                             <td>{{ $brand->slug }}</td>
                                             <td><a href="#" target="_blank">1</a></td>
                                             <td>
                                                 <div class="list-icon-function">
-                                                    <a href="#">
+                                                    <a href="{{ route('admin.brand.edit', $brand->slug) }}">
                                                         <div class="item edit">
                                                             <i class="icon-edit-3"></i>
                                                         </div>
