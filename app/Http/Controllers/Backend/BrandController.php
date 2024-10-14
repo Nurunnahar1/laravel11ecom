@@ -87,12 +87,34 @@ class BrandController extends Controller
             ]);
             return redirect()->route('admin.brands')->with('status', 'Brand successfully created.');
         }
-           Brand::create([
-           'name' => $request->name,
-           'slug' => Str::slug($request->name),
-           ]);
-           return redirect()->route('admin.brands')->with('status', 'Brand successfully created.');
-
+        Brand::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+        return redirect()->route('admin.brands')->with('status', 'Brand successfully created.');
 
     }
+
+    public function deleteBrand($slug)
+    {
+        $brand = Brand::where('slug', $slug)->first();
+
+        if ($brand) {
+            // Check if the brand has an image and delete it
+            if ($brand->image) {
+                $image_location = public_path($brand->image);
+                if (file_exists($image_location)) {
+                    unlink($image_location);
+                }
+            }
+
+            // Delete the brand
+            $brand->delete();
+
+            return redirect()->route('admin.brands')->with('status', 'Brand deleted successfully.');
+        }
+
+        return redirect()->route('admin.brands')->with('error', 'Brand not found.');
+    }
+
 }

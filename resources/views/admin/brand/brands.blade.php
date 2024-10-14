@@ -36,12 +36,13 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="{{ route('admin.create.brand') }}"><i class="icon-plus"></i>Add new</a>
+                        <a class="tf-button style-1 w208" href="{{ route('admin.create.brand') }}"><i
+                                class="icon-plus"></i>Add new</a>
                     </div>
                     <div class="wg-table table-all-user">
                         <div class="table-responsive">
 
-                            @if(Session::has('status'))
+                            @if (Session::has('status'))
                                 <p class="alert alert-success">{{ Session::get('status') }}</p>
                             @endif
 
@@ -59,9 +60,9 @@
                                 <tbody>
                                     @foreach ($brands as $key => $brand)
                                         <tr>
-                                            <td>{{ $key+1 }}</td>
-                                           <td><img src="{{ asset($brand->image) }}" alt="" width="100"></td>
-                                         <td>{{ $brand->name }}</td>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td><img src="{{ asset($brand->image) }}" alt="" width="100"></td>
+                                            <td>{{ $brand->name }}</td>
                                             <td>{{ $brand->slug }}</td>
                                             <td><a href="#" target="_blank">1</a></td>
                                             <td>
@@ -71,11 +72,15 @@
                                                             <i class="icon-edit-3"></i>
                                                         </div>
                                                     </a>
-                                                    <form action="#" method="POST">
+                                                    {{-- <form action="{{ route('admin.brand.delete', $brand->slug) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                       @method('DELETE')
                                                         <div class="item text-danger delete">
                                                             <i class="icon-trash-2"></i>
                                                         </div>
-                                                    </form>
+                                                    </form> --}}
+                                                    <a href="{{ route('admin.brand.delete', ['slug' => $brand->slug]) }}" class="btn btn-danger py-2 mx-2" onclick="return confirm('Are you sure to delete it?? ')"></a>
                                                 </div>
                                             </td>
                                         </tr>
