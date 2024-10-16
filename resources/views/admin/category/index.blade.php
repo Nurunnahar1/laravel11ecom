@@ -5,7 +5,7 @@
         <div class="main-content-inner">
             <div class="main-content-wrap">
                 <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-                    <h3>Brands</h3>
+                    <h3>Categories</h3>
                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                         <li>
                             <a href="{{ route('admin.index') }}">
@@ -16,7 +16,7 @@
                             <i class="icon-chevron-right"></i>
                         </li>
                         <li>
-                            <div class="text-tiny">Brands</div>
+                            <div class="text-tiny">Categories</div>
                         </li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="{{ route('admin.create.brand') }}"><i
+                        <a class="tf-button style-1 w208" href="{{ route('admin.create.category') }}"><i
                                 class="icon-plus"></i>Add new</a>
                     </div>
                     <div class="wg-table table-all-user">
@@ -58,22 +58,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($brands as $key => $brand)
+                                    @foreach ($categories as $key => $category)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset($brand->image) }}" alt="" width="100"></td>
-                                            <td>{{ $brand->name }}</td>
-                                            <td>{{ $brand->slug }}</td>
+                                            <td><img src="{{ asset($category->image) }}" alt="" width="100"></td>
+                                            <td>{{ $category->name }}</td>
+                                            <td>{{ $category->slug }}</td>
                                             <td><a href="#" target="_blank">1</a></td>
                                             <td>
                                                 <div class="list-icon-function">
-                                                    <a href="{{ route('admin.brand.edit', $brand->slug) }}">
+                                                    <a href="{{ route('admin.category.edit', $category->slug) }}">
                                                         <div class="item edit">
                                                             <i class="icon-edit-3"></i>
                                                         </div>
                                                     </a>
                                                    
-                                                    <a href="{{ route('admin.brand.delete', ['slug' => $brand->slug]) }}" class="btn btn-danger py-2 mx-2" onclick="return confirm('Are you sure to delete it?? ')"></a>
+                                                    <a href="{{ route('admin.category.delete', ['slug' => $category->slug]) }}" class="btn btn-danger py-2 mx-2" onclick="return confirm('Are you sure to delete it?? ')"></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="divider"></div>
                         <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
-                            {{ $brands->links('pagination::bootstrap-5') }}
+                            {{ $categories->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>
