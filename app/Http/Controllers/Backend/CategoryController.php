@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Category;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -101,5 +101,27 @@ class CategoryController extends Controller
         ]);
 
         return redirect()->route('admin.category.index')->with('status', 'Category successfully updated.');
+    }
+
+    public function deleteCategory($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+
+        if ($category) {
+            // Check if the category  has an image and delete it
+            if ($category->image) {
+                $image_location = public_path($category->image);
+                if (file_exists($image_location)) {
+                    unlink($image_location);
+                }
+            }
+
+            // Delete the  category
+            $category->delete();
+
+            return redirect()->route('admin.category.index')->with('status', 'Category deleted successfully.');
+        }
+
+        return redirect()->route('admin.category.index')->with('error', 'Category not found.');
     }
 }

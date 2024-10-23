@@ -72,8 +72,10 @@
                                                             <i class="icon-edit-3"></i>
                                                         </div>
                                                     </a>
-                                                   
-                                                    <a href="{{ route('admin.category.delete', ['slug' => $category->slug]) }}" class="btn btn-danger py-2 mx-2" onclick="return confirm('Are you sure to delete it?? ')"></a>
+
+                                                    <a href="{{ route('admin.category.delete', ['slug' => $category->slug]) }}"
+                                                        class="btn btn-danger py-2 mx-2"
+                                                        onclick="return confirm('Are you sure to delete it?? ')"></a>
                                                 </div>
                                             </td>
                                         </tr>
