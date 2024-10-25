@@ -36,23 +36,23 @@
                         <fieldset class="name">
                             <div class="body-title">Category Name <span class="tf-color-1">*</span></div>
                             <input class="flex-grow @error('name') is-invalid @enderror" type="text"
-                                placeholder="Brand name" name="name" tabindex="0" value="{{ old('name') }}"
+                                placeholder="Category name" name="name" tabindex="0" value="{{ old('name') }}"
                                 aria-required="true" required="">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </fieldset>
-                     
+
                         <fieldset>
                             <div class="body-title">Upload images <span class="tf-color-1">*</span>
                             </div>
-                           <div class="mb-3">
+                            <div class="mb-3">
                                 <label class="form-label">Category image</label>
                                 <input oninput="newImg.src=window.URL.createObjectURL(this.files[0])" class="form-control"
-                                name="image" type="file" id="image">
+                                    name="image" type="file" id="image">
                             </div>
 
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <img class="" id="newImg" width="150">
                             </div>
                         </fieldset>

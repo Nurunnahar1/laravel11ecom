@@ -34,7 +34,8 @@
                                 </div>
                             </form>
                         </div>
-                        <a class="tf-button style-1 w208" href="{{ route('admin.create.product') }}"><i class="icon-plus"></i>Add new</a>
+                        <a class="tf-button style-1 w208" href="{{ route('admin.create.product') }}"><i
+                                class="icon-plus"></i>Add new</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
@@ -59,8 +60,9 @@
                                         <td>{{ $product->id }}</td>
                                         <td class="pname">
                                             <div class="image">
-                                                <img src="{{ asset('uploads/products/thumbnails') }}/{{ $product->image }}"
-                                                    alt="" class="image">
+                                                {{-- <img src="{{ asset('uploads/products/thumbnails') }}/{{ $product->image }}"
+                                                    alt="" class="image"> --}}
+                                                <img src="{{ asset($product->image) }}" alt="" class="image">
                                             </div>
                                             <div class="name">
                                                 <a href="#" class="body-title-2">{{ $product->name }}</a>
