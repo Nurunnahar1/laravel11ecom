@@ -60,8 +60,6 @@
                                         <td>{{ $product->id }}</td>
                                         <td class="pname">
                                             <div class="image">
-                                                {{-- <img src="{{ asset('uploads/products/thumbnails') }}/{{ $product->image }}"
-                                                    alt="" class="image"> --}}
                                                 <img src="{{ asset($product->image) }}" alt="" class="image">
                                             </div>
                                             <div class="name">
@@ -84,7 +82,7 @@
                                                         <i class="icon-eye"></i>
                                                     </div>
                                                 </a>
-                                                <a href="#">
+                                                <a href="{{ route('admin.product.edit', $product->slug) }}">
                                                     <div class="item edit">
                                                         <i class="icon-edit-3"></i>
                                                     </div>
